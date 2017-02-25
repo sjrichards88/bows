@@ -1,0 +1,421 @@
+@import "variables";
+@import "bootstrap";
+@import "vendor/owl.carousel";
+@import "vendor/owl.transitions";
+@import "vendor/font-awesome/font-awesome";
+
+/**
+	Contents:
+
+	1. Misc
+	2, Typography
+	3. Containers
+	4. Header
+
+ */
+
+
+
+/*============================
+=            Misc            =
+============================*/
+
+body {
+	// padding-top: 100px;
+	// background-color: $brand-secondary;
+	// padding-right: 20px;
+	// padding-left: 20px;
+}
+
+article {
+	padding: 2em 0;
+}
+
+.gen-padding {
+	padding: $grid-gutter-width;
+}
+
+.gen-padding-left {
+	padding-left: $grid-gutter-width;
+}
+
+.extra-padding {
+	padding: $grid-gutter-width * 2;
+}
+
+
+.bg-primary {
+	p, h2 {
+		color: #fff;
+	}
+}
+
+.bg-secondary {
+	background-color: $brand-secondary;
+	p, h2 {
+		color: #fff;
+	}
+}
+
+/*=====  End of Misc  ======*/
+
+/*==================================
+=            Typography            =
+==================================*/
+
+.center {
+	text-align: center;
+}
+
+/*=====  End of Typography  ======*/
+
+
+/*==================================
+=            Containers            =
+==================================*/
+
+.container-max {
+	max-width: 1400px;
+}
+
+/*=====  End of Containers  ======*/
+
+
+/*==============================
+=            Header            =
+==============================*/
+
+header {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    min-height: 100vh;
+    .navbar-default {
+    	background-color: white;
+    	border: 0;
+    	.navbar-header {
+			@media (min-width: $screen-sm) {
+				width: 100%;
+				position: relative;
+			}
+			.tagline-wrapper {
+				transition: all 0.3s ease-in-out;
+				height: 30px;
+				overflow: hidden;
+				.tagline {
+					text-align: center;
+					padding-top: 10px;
+					font-size: 18px;
+					font-family: $headings-font-family;
+					color: $brand-info;
+					margin: 0;
+					float: left;
+					transform: translateX(-50%);
+					left: 50%;
+					position: relative;
+					&:before {
+					    content: "";
+					    display: block;
+					    position: absolute;
+					    left: -119px;
+					    top: 13px;
+					    width: 101px;
+					    height: 11px;
+					    background: url(../images/tagline-before.png) no-repeat;
+					}
+					&:after {
+					    content: "";
+					    display: block;
+					    position: absolute;
+					    right: -119px;
+					    top: 3px;
+					    width: 101px;
+					    height: 11px;
+					    top: 13px;
+					    background: url(../images/tagline-after.png) no-repeat;
+					}
+				}
+			}
+			.navbar-brand {
+				@media (min-width: $screen-sm) {
+					position: absolute;
+					height: 150px;
+					background-color: white;
+					top: 0;
+					left: 0;
+					transition: all 0.3s ease-in-out;
+					border-radius: 50%;
+					padding: 15px;
+				}
+				img {
+					height: 120px;
+					transition: all 0.3s ease-in-out;
+				}
+			}
+    	}
+    	.navbar-nav {
+    		@media (min-width: $screen-sm) {
+				transform: translateX(-50%);
+				left: 50%;
+				position: relative;
+    		}
+    		li {
+    			a {
+    				font-family: $headings-font-family;
+    				font-weight: normal;
+    				font-size: 16px;
+    				color: $brand-info;
+    				&:focus {
+    					color: $brand-info;
+    				}
+    			}
+    			&.active, &:hover {
+    				a {
+    					background-color: transparent;
+    					color: $brand-primary;
+    					&:focus {
+    						background-color: transparent;
+	    					color: $brand-primary;
+    					}
+    				}
+    				&:hover {
+	    				a {
+	    					background-color: transparent;
+	    					color: $brand-primary;
+	    				}
+    				}
+    			}
+    		}
+    	}
+    	&.scrolled {
+    		.navbar-header {
+    			.tagline-wrapper {
+    				height: 0;
+    			}
+	    		.navbar-brand {
+	    			height: 75px;
+	    			padding: 10px;
+	    			img {
+	    				height: 60px;
+	    			}
+	    		}
+    		}
+    	}
+    }
+
+    .scroll-down {
+	    position: absolute;
+	    bottom: 20px;
+	    transform: translateX(-50%);
+	    left: 50%;
+	    color: white;
+	    font-size: 1.5em;
+	    z-index: 12;
+	    top: auto;
+	    padding: 6px;
+	    border: 1px solid white;
+	    border-radius: 50%;
+	    &:hover, &:focus {
+	    	text-decoration: none;
+	    }
+    }
+
+	.home-carousel {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		.home-carousel__item {
+			height: 100%;
+			width: 100%;
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+			// background-attachment: fixed;
+		}
+		.owl-wrapper-outer, .owl-wrapper, .owl-item {
+			height: 100%;
+		}
+	}
+}
+
+
+.home-link-wrap {
+	transform: scale(0.97);
+	transition: 0.3s all ease-in-out;
+	display: block;
+	border: 5px solid #fff;
+	margin-top: $grid-gutter-width;
+	box-shadow: 0 1px 3px 1px rgba(0,0,0,.08);
+	font-family: $headings-font-family;
+	font-size: 20px;
+	text-decoration: none;
+	&:hover {
+		transform: scale(1);
+		z-index: 5;
+		text-decoration: none;
+	}
+	.home-link-button {
+		border-radius: 50%;
+		background-color: white;
+		position: relative;
+		transform: translateX(-50%);
+		margin-top: -35px;
+		left: 50%;
+		padding:17px;
+		width: 70px;
+		transition: 0.3s all ease-in-out;
+		img {
+			width: 100%;
+		}
+	}
+	.home-link-block {
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		padding-bottom: 60%;
+		border-radius: 5px;
+		position: relative;
+		img {
+			border-radius: 5px;
+			width: 100%;
+		}
+	}
+	p {
+		text-align: center;
+	}
+	&:hover {
+		.home-link-button {
+			background-color: $brand-secondary;
+		}
+	}
+}
+
+
+.intro {
+	    // display: none;
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    width: 100%;
+    background: rgba(176,196,221,0.4);
+    padding-bottom: 8px;
+    z-index: 50;
+    h1 {
+	   	color: white;
+	    text-align: center;
+	    // font-weight: bold;
+	    text-shadow: 1px 1px #555;
+	    font-family: 'Ruthie', cursive;
+	    font-size: 85px;
+    }
+}
+
+
+/*=====  End of Header  ======*/
+
+/*==============================
+=            Footer            =
+==============================*/
+
+.footer {
+	background-color: #222;
+	padding: $grid-gutter-width 0;
+	margin-top: 2em;
+	h4 {
+		color: $brand-primary;
+	}
+	p {
+		color: #fff;
+	}
+	nav {
+		ul {
+			padding: 0;
+			list-style: none;
+			li {
+				a {
+					color: #fff;
+				}
+			}
+		}
+	}
+	.social {
+		list-style: none;
+		padding-left: 0;
+		li {
+			float: left;
+			a {
+				font-size: 2em;
+				padding: 0 0.5em 0.5em 0.5em;
+				color: #fff;
+				transition: all 0.3s ease-in-out;
+				&:hover {
+					text-decoration: none;
+					color: $brand-primary;
+				}
+			}
+			&:first-child {
+				a {
+					padding-left: 0;
+				}			
+			}
+		}
+	}
+}
+
+/*=====  End of Footer  ======*/
+
+
+.sh-wrapper {
+	float: left;
+	width: 100%;
+	padding-bottom: $grid-gutter-width;
+	@media (min-width: $screen-sm) {
+		display: table;
+		float: none;
+	}
+	.sh-row	{
+		float: left;
+		@media (min-width: $screen-sm) {
+			display: table-row;
+			float: none;
+		}
+		.sh-child {
+			float: left;
+			background-size: cover;
+			background-position: center;
+			@media (min-width: $screen-sm) {
+				display: table-cell;
+				float: none;
+			}
+			&.sh-width-70 {
+				width: 100%;
+				@media (min-width: $screen-sm) {
+					width: 50%;
+				}
+				@media (min-width: $screen-md) {
+					width: 70%;
+				}
+			}			
+			&.sh-width-30 {
+				width: 100%;
+				@media (min-width: $screen-sm) {
+					width: 50%;
+				}				
+				@media (min-width: $screen-md) {
+					width: 30%;
+				}
+			}
+			p {
+				font-size: $font-size-large;
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+	h2 {
+		margin-top: 0;
+	}
+}
