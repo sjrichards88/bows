@@ -27,9 +27,13 @@ body {
 	// padding-left: 20px;
 }
 
-article {
-	padding: 2em 0;
+section {
+	padding: $grid-gutter-width * 2;
 }
+
+// article {
+// 	padding: 2em 0;
+// }
 
 .gen-padding {
 	padding: $grid-gutter-width;
@@ -55,6 +59,41 @@ article {
 	p, h2 {
 		color: #fff;
 	}
+}
+
+.scroll-up {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	top: auto;
+    color: white;
+    font-size: 1.5em;
+    z-index: 12;
+    padding: 6px;
+    border: 1px solid white;
+    border-radius: 50%;
+    background-color: $brand-secondary;
+    display: none;
+    &:hover {
+    	text-decoration: none;
+    	background-color: $brand-primary;
+    	color: white;
+    }
+    &:focus {
+    	text-decoration: none;
+    	background-color: $brand-secondary;
+    	color: white;
+    }
+}
+
+.scroll-down {
+	@extend .scroll-up;
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    right: initial;
+    background-color: transparent;
+    display: block;
 }
 
 /*=====  End of Misc  ======*/
@@ -85,11 +124,16 @@ article {
 =            Header            =
 ==============================*/
 
-header {
+.header {
     position: relative;
     z-index: 1;
-    height: 100vh;
-    min-height: 100vh;
+    min-height: 250px;
+    margin-top: 80px;
+    &.home {
+	    height: 100vh;
+	    min-height: 100vh;
+	    margin-top: 0;
+    }
     .navbar-default {
     	background-color: white;
     	border: 0;
@@ -201,23 +245,6 @@ header {
 	    		}
     		}
     	}
-    }
-
-    .scroll-down {
-	    position: absolute;
-	    bottom: 20px;
-	    transform: translateX(-50%);
-	    left: 50%;
-	    color: white;
-	    font-size: 1.5em;
-	    z-index: 12;
-	    top: auto;
-	    padding: 6px;
-	    border: 1px solid white;
-	    border-radius: 50%;
-	    &:hover, &:focus {
-	    	text-decoration: none;
-	    }
     }
 
 	.home-carousel {

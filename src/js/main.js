@@ -1,9 +1,8 @@
-navScroll();
-homeCarousel();
+initNavScroll();
+initHomeCarousel();
+initScrollUp();
 
-
-
-function navScroll() {
+function initNavScroll() {
 
 	function navFunction() {
 		if ($(window).scrollTop() > 0) {
@@ -11,7 +10,6 @@ function navScroll() {
 		} else {
 			$('header .navbar-default').removeClass('scrolled');
 		}
-
 	}
 
 	window.addEventListener('scroll', navFunction);
@@ -19,11 +17,37 @@ function navScroll() {
 
 }
 
-function homeCarousel() {
+function initHomeCarousel() {
 	$("#home-carousel").owlCarousel({
 		items: 1,
 		singleItem: true,
 		autoPlay: true,
 		transitionStyle : "fade"
 	});
+}
+
+function initScrollUp() {
+
+	var scrollUpElement = $('.scroll-up');
+
+	function scrollUp() {
+
+		if ( $(window).scrollTop() > $(window).height() ) {
+			scrollUpElement.fadeIn();
+		} else {
+			scrollUpElement.fadeOut();
+		}
+
+	}
+
+	scrollUpElement.on('click', function(e) {
+		e.preventDefault();
+		$('body, html').animate({ 
+			scrollTop: '0px' 
+		}, 600);
+	});
+
+	window.addEventListener('scroll', scrollUp);
+	window.addEventListener('load', scrollUp);
+
 }
