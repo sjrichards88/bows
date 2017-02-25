@@ -11,6 +11,8 @@
 	2, Typography
 	3. Containers
 	4. Header
+	5. Footer
+	6. Specifics
 
  */
 
@@ -28,12 +30,21 @@ body {
 }
 
 section {
-	padding: $grid-gutter-width * 2;
+	padding-top: $grid-gutter-width * 2;
+	padding-bottom: $grid-gutter-width * 2;
 }
 
-// article {
-// 	padding: 2em 0;
-// }
+article {
+	padding: $grid-gutter-width 0 $grid-gutter-width 0;
+	@media (min-width: $screen-sm) {
+		padding: $grid-gutter-width * 2;
+	}
+
+}
+
+img {
+	max-width: 100%;
+}
 
 .gen-padding {
 	padding: $grid-gutter-width;
@@ -47,6 +58,9 @@ section {
 	padding: $grid-gutter-width * 2;
 }
 
+.no-padding-top {
+	padding-top: 0;
+}
 
 .bg-primary {
 	p, h2 {
@@ -96,6 +110,21 @@ section {
     display: block;
 }
 
+.display-flex {
+	display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.btn {
+	&.center {
+		margin: 0 auto;
+	}
+	&.contact {
+		font-size: $font-size-h4;
+	}
+}
+
 /*=====  End of Misc  ======*/
 
 /*==================================
@@ -106,6 +135,38 @@ section {
 	text-align: center;
 }
 
+.intro-text, .block-text {
+	padding: $grid-gutter-width 0 $grid-gutter-width 0;
+	p {
+		font-size: $font-size-h4;
+		line-height: 1.8;
+	}
+}
+
+.block-text {
+	padding: $grid-gutter-width 0 $grid-gutter-width 0;
+	@media (min-width: $screen-sm) {
+		padding: $grid-gutter-width * 2;
+	}
+}
+
+.script-text {
+	font-family: 'Satisfy';
+	font-size: 22px;
+	padding: $grid-gutter-width 0 $grid-gutter-width 0;
+	@media (min-width: $screen-sm) {
+		padding: 0 0 0 $grid-gutter-width;
+	}
+	.script-img {
+		float: left;
+		padding-bottom: $grid-gutter-width;
+		@media (min-width: $screen-sm) {
+			max-width: 50%;
+			padding-right: $grid-gutter-width * 2;
+		}
+	}
+}
+
 /*=====  End of Typography  ======*/
 
 
@@ -114,7 +175,10 @@ section {
 ==================================*/
 
 .container-max {
-	max-width: 1400px;
+	max-width: 1600px;
+	margin: 0 auto;
+	padding-left: $grid-gutter-width / 2;
+	padding-right: $grid-gutter-width / 2;
 }
 
 /*=====  End of Containers  ======*/
@@ -152,6 +216,7 @@ section {
 					font-size: 18px;
 					font-family: $headings-font-family;
 					color: $brand-info;
+					// color: black;
 					margin: 0;
 					float: left;
 					transform: translateX(-50%);
@@ -209,14 +274,17 @@ section {
     				font-weight: normal;
     				font-size: 16px;
     				color: $brand-info;
+    				// color: black;
     				&:focus {
     					color: $brand-info;
+    					// color: black;
     				}
     			}
     			&.active, &:hover {
     				a {
     					background-color: transparent;
     					color: $brand-primary;
+    					font-weight: bold;
     					&:focus {
     						background-color: transparent;
 	    					color: $brand-primary;
@@ -268,7 +336,7 @@ section {
 }
 
 
-.home-link-wrap {
+.home-link-wrap, .internal-link-wrap {
 	transform: scale(0.97);
 	transition: 0.3s all ease-in-out;
 	display: block;
@@ -319,6 +387,13 @@ section {
 	}
 }
 
+.internal-link-wrap {
+	margin-top: 0;
+	p {
+		margin: 5px 0 0 0;
+	}
+}
+
 
 .intro {
 	    // display: none;
@@ -349,7 +424,6 @@ section {
 .footer {
 	background-color: #222;
 	padding: $grid-gutter-width 0;
-	margin-top: 2em;
 	h4 {
 		color: $brand-primary;
 	}
@@ -444,5 +518,56 @@ section {
 	}
 	h2 {
 		margin-top: 0;
+	}
+}
+
+
+/*============================
+=          Specifics          =
+============================*/
+
+.ceremony {
+	.ceremony__link {
+		display: block;
+		&:focus, &:hover {
+			text-decoration: none;
+		}
+		article {
+			padding: 0;
+			margin: 0 0 $grid-gutter-width 0;
+			position: relative;
+			border: 5px solid #fff;
+	    	box-shadow: 0 1px 3px 1px rgba(0,0,0,.08);
+			@media (min-width: $screen-sm) {
+				transform: scale(.99);
+				transition: all 0.3s ease-in-out;
+			}
+			&:hover {
+				transform: scale(1);
+			}
+			h2 {
+				bottom: 0;
+				left: 0;
+				padding: $grid-gutter-width / 2;
+				margin: 0;
+				background-color: white;
+				font-size: $font-size-h2 / 1.5;
+				text-align: center;
+				@media (min-width: $screen-sm) {
+					position: absolute;
+					font-size: $font-size-h2;
+				}
+			}
+		}
+	}
+	&:nth-child(even) {
+		.ceremony__link {
+			article {
+				h2 {
+					right: 0;
+					left: initial;
+				}
+			}
+		}
 	}
 }

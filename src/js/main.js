@@ -32,7 +32,7 @@ function initScrollUp() {
 
 	function scrollUp() {
 
-		if ( $(window).scrollTop() > $(window).height() ) {
+		if ( $(window).scrollTop() > $(window).height() / 1.5 ) {
 			scrollUpElement.fadeIn();
 		} else {
 			scrollUpElement.fadeOut();
